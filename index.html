@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Hora por hora</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper-->
+	<div id="wrapper">
+
+		<!-- Nav -->
+		<nav id="nav">
+			<a href="#" class="icon solid fa-home"><span>Hora x Hora</span></a>
+			<a href="#work" class="icon solid fa-calendar-alt"><span>Calendario</span></a>
+			
+
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Me -->
+			<article id="home" class="panel intro">
+				<header>
+					<h1>Reporte</h1>
+					<p>Calculo del hora x hora</p>
+				</header>
+
+				<form id="form-calculos" class="formulario-centrado">
+					<div class="field-column">
+						<label for="desde">Cálculos de:</label>
+						<div class="inputs-horas">
+							<input type="time" id="desde" name="desde">
+							<span>a</span>
+							<input type="time" id="hasta" name="hasta">
+						</div>
+						<small id="mensajeHoras" class="mensaje-horas"></small>
+					</div>
+
+					<div class="field">
+						<label for="ciclo">Ciclo (segundos):</label>
+						<input type="number" id="ciclo" name="ciclo" placeholder="Ej. 45">
+					</div>
+
+					<div class="field">
+						<label for="cavidades">Cavidades corriendo:</label>
+						<input type="number" id="cavidades" name="cavidades" placeholder="Ej. 2">
+					</div>
+
+					<div class="field">
+						<label for="piezasSinRetrabajo">Piezas sin retrabajo:</label>
+						<input type="number" id="piezasSinRetrabajo" name="piezasSinRetrabajo" placeholder="Ej. 5">
+					</div>
+
+
+
+					<div class="field-column">
+						<label for="paroInicio">Tiempo muerto</label>
+						<div class="inputs-horas">
+							<span>De</span>
+							<input type="time" id="paroInicio" name="paroInicio">
+							<span>A</span>
+							<input type="time" id="paroFin" name="paroFin">
+							<!-- botón tipo button (no submit) y con id único -->
+							<button type="button" id="btnAgregarParo" class="button">Agregar</button>
+						</div>
+					</div>
+
+					<!-- Tabla de tiempos muertos -->
+					<table id="tablaParos" class="tabla-paros">
+						<thead>
+							<tr>
+								<th>Hora de inicio</th>
+								<th>Hora de final</th>
+								<th>Duración (min)</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+
+					<table id="tablaProduccion" class="tabla-produccion">
+						<thead>
+							<tr>
+								<th>Hora</th>
+								<th>Plan</th>
+								<th>Scrap</th>
+								<th class="col-sin-retrabajo">Piezas sin retrabajo</th>
+								<th>Piezas con retrabajo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="hora-celda">7 - 8</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td class="hora-celda">8 - 9</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+
+							</tr>
+							<tr>
+								<td class="hora-celda">9 - 10</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td class="hora-celda">10 - 11</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>11 - 12</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>12 - 1</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>1 - 2</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>2 - 3</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>3 - 4</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>4 - 5</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>5 - 6</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>6 - 7</td>
+								<td>0</td>
+								<td><input type="number" class="scrap-input" value="0" min="0"></td>
+								<td class="col-sin-retrabajo">0</td>
+								<td>0</td>
+							</tr>
+
+
+							<!-- ... otras filas ... -->
+							<tr class="fila-totales">
+								<td><strong>Total</strong></td>
+								<td id="total-plan">0</td>
+								<td id="total-scrap">0</td>
+								<td id="total-sin-retrabajo" class="col-sin-retrabajo">0</td>
+								<td id="total-con-retrabajo">0</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</form>
+
+
+
+			</article>
+
+
+			<!-- Work -->
+			<article id="work" class="panel">
+				
+
+				<section>
+					<section>
+  <div class="calendar">
+
+    <div class="col leftCol">
+      <div class="content">
+        <h1 class="date">Hoy<span></span></h1>
+
+        
+      </div>
+    </div>
+
+    <div class="col rightCol">
+      <div class="content">
+        <select id="yearSelect" class="year" aria-label="Seleccionar año"></select>
+
+        <ul class="months">
+          <li><a href="#" data-value="0">Enero</a></li>
+          <li><a href="#" data-value="1">Febrero</a></li>
+          <li><a href="#" data-value="2">Marzo</a></li>
+          <li><a href="#" data-value="3">Abril</a></li>
+          <li><a href="#" data-value="4">Mayo</a></li>
+          <li><a href="#" data-value="5">Junio</a></li>
+          <li><a href="#" data-value="6">Julio</a></li>
+          <li><a href="#" data-value="7">Agosto</a></li>
+          <li><a href="#" data-value="8" class="selected">Septiembre</a></li>
+          <li><a href="#" data-value="9">Octubre</a></li>
+          <li><a href="#" data-value="10">Noviembre</a></li>
+          <li><a href="#" data-value="11">Diciembre</a></li>
+        </ul>
+        <div class="clearfix"></div>
+
+        <ul class="weekday">
+          <li>D</li><li>L</li><li>M</li><li>M</li><li>J</li><li>V</li><li>S</li>
+        </ul>
+        <div class="clearfix"></div>
+
+        <ul class="days" aria-live="polite"></ul>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+  </div>
+</section>
+
+				</section>
+			</article>
+
+			<!-- Contact 
+			<article id="contact" class="panel">
+				<header>
+					<h2>Contact Me</h2>
+				</header>
+				<form action="#" method="post">
+					<div>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<input type="text" name="name" placeholder="Name" />
+							</div>
+							<div class="col-6 col-12-medium">
+								<input type="text" name="email" placeholder="Email" />
+							</div>
+							<div class="col-12">
+								<input type="text" name="subject" placeholder="Subject" />
+							</div>
+							<div class="col-12">
+								<textarea name="message" placeholder="Message" rows="6"></textarea>
+							</div>
+							<div class="col-12">
+								<input type="submit" value="Send Message" />
+							</div>
+						</div>
+					</div>
+				</form>
+			</article> -->
+
+		</div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<ul class="copyright">
+				
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
