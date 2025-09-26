@@ -432,45 +432,6 @@
 		calcularProduccion();
 	});
 
-	// función auxiliar para dividir en cortes de hora
-	function agregarParo(inicioMin, finMin) {
-		let actual = inicioMin;
-		while (actual < finMin) {
-			let siguienteHora = Math.ceil((actual + 1) / 60) * 60;
-			let siguiente = Math.min(siguienteHora, finMin);
-
-			const hInicio = String(Math.floor((actual / 60) % 24)).padStart(2, "0");
-			const mInicio = String(actual % 60).padStart(2, "0");
-			const hFin = String(Math.floor((siguiente / 60) % 24)).padStart(2, "0");
-			const mFin = String(siguiente % 60).padStart(2, "0");
-
-			const paroId = Date.now() + "-" + actual;
-			const fila = document.createElement("tr");
-			fila.dataset.paroId = paroId;
-			fila.innerHTML = `
-            <td>${hInicio}:${mInicio}</td>
-            <td>${hFin}:${mFin}</td>
-            <td>${siguiente - actual}</td>
-            <td><span class="icono-eliminar">🗑️</span></td>
-        `;
-
-			fila.querySelector(".icono-eliminar").addEventListener("click", () => {
-				fila.remove();
-				parosGuardados = parosGuardados.filter(p => p.id !== paroId);
-				calcularProduccion();
-			});
-
-			tablaParos.appendChild(fila);
-
-			let subInicio = new Date(`1970-01-01T${hInicio}:${mInicio}`);
-			let subFin = new Date(`1970-01-01T${hFin}:${mFin}`);
-			if (subFin <= subInicio) subFin.setDate(subFin.getDate() + 1);
-
-			parosGuardados.push({ id: paroId, inicio: subInicio, fin: subFin });
-
-			actual = siguiente;
-		}
-	}
 
 
 	// función auxiliar para agregar un paro y dividir en cortes de hora
