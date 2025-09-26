@@ -474,29 +474,35 @@
 
 
 	// función auxiliar: minutos trabajados en una hora descontando paros
-	function minutosTrabajadosConParos(horaInicioMin, horaFinMin, inicioMin, finMin) {
-		// minutos base de esa hora
-		let desdeMin = Math.max(inicioMin, horaInicioMin);
-		let hastaMin = Math.min(finMin, horaFinMin);
-		let minutos = Math.max(0, hastaMin - desdeMin);
+function minutosTrabajadosConParos(horaInicioMin, horaFinMin, inicioMin, finMin) {
+    // minutos base de esa hora (sin paros)
+    let desdeMin = Math.max(inicioMin, horaInicioMin);
+    let hastaMin = Math.min(finMin, horaFinMin);
+    let minutos = Math.max(0, hastaMin - desdeMin);
 
-		// restar los paros
-		parosGuardados.forEach(paro => {
-			let pInicio = paro.inicio.getHours() * 60 + paro.inicio.getMinutes();
-			let pFin = paro.fin.getHours() * 60 + paro.fin.getMinutes();
-			if (paro.fin.getDate() > paro.inicio.getDate()) {
-				pFin += 24 * 60; // cruza medianoche
-			}
+    // helper para overlap
+    const overlap = (aStart, aEnd, bStart, bEnd) => Math.max(0, Math.min(aEnd, bEnd) - Math.max(aStart, bStart));
 
-			const desdeP = Math.max(horaInicioMin, pInicio);
-			const hastaP = Math.min(horaFinMin, pFin);
-			const overlap = Math.max(0, hastaP - desdeP);
+    parosGuardados.forEach(paro => {
+        // minutos "puros" 0..1439 (o pFin ya ajustado si el paro cruza medianoche cuando se creó)
+        let pInicio = paro.inicio.getHours() * 60 + paro.inicio.getMinutes();
+        let pFin = paro.fin.getHours() * 60 + paro.fin.getMinutes();
+        if (paro.fin.getDate() > paro.inicio.getDate()) { // paro que cruza medianoche en su propio intervalo
+            pFin += 24 * 60;
+        }
 
-			minutos -= overlap;
-		});
+        // Probamos overlap en la posición original y en la misma posición +24h.
+        // Esto resuelve el caso del turno nocturno donde las filas usan valores tipo 24..30.
+        const ov1 = overlap(horaInicioMin, horaFinMin, pInicio, pFin);
+        const ov2 = overlap(horaInicioMin, horaFinMin, pInicio + 24 * 60, pFin + 24 * 60);
 
-		return Math.max(0, minutos);
-	}
+        const ov = Math.max(ov1, ov2);
+        minutos -= ov;
+    });
+
+    return Math.max(0, minutos);
+}
+
 
 	// función principal de producción
 	function calcularProduccion() {
