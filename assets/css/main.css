@@ -1306,7 +1306,7 @@ input, select, textarea, button {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/bg.jpg");
+		background-color: #F6339A;
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1326,8 +1326,8 @@ input, select, textarea, button {
 
 	body, input, textarea, select, button {
 		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: 300;
-		color: #777777;
+		font-weight: 500;
+		color: #333;
 		font-size: 20pt;
 		line-height: 1.75em;
 	}
@@ -1533,7 +1533,7 @@ input, select, textarea, button {
 
 		header > p {
 			margin: 0.5em 0 0 0;
-			color: #aaa;
+			color: #6a6a6a;
 		}
 
 		@media screen and (max-width: 736px) {
@@ -1594,7 +1594,7 @@ input, select, textarea, button {
 		transition: background-color .25s ease-in-out;
 		-webkit-appearance: none;
 		display: inline-block;
-		background-color: #222222;
+		background-color: #F6339A;
 		color: #ffffff;
 		border: 0;
 		cursor: pointer;
@@ -1607,7 +1607,7 @@ input, select, textarea, button {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #333333;
+			background-color: #C6185C;
 		}
 
 		input[type="button"]:active,
@@ -1778,7 +1778,7 @@ input, select, textarea, button {
 		#nav a {
 			position: relative;
 			display: inline-block;
-			color: #ffffff;
+			color: #FCCEE8;
 			width: 1em;
 			height: 1em;
 			line-height: 0.9em;
@@ -1807,7 +1807,7 @@ input, select, textarea, button {
 				left: 50%;
 				bottom: -0.75em;
 				margin-left: -0.5em;
-				border-bottom: solid 0em #ffffff;
+				border-bottom: solid 0em #FCCEE8;
 				border-left: solid 0.5em transparent;
 				border-right: solid 0.5em transparent;
 				-moz-transition: border-bottom-width .25s ease-in-out;
@@ -1947,7 +1947,7 @@ input, select, textarea, button {
 		position: relative;
 		overflow: hidden;
 		width: 100%;
-		background: #ffffff;
+		background: #FCCEE8;
 		box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
 		-moz-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
 		-webkit-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
@@ -2326,12 +2326,12 @@ input, select, textarea, button {
 
 .tabla-paros th, 
 .tabla-paros td {
-  border: 1px solid #ccc;
+  border: 1px solid #FDA5D5;
   padding: 0.8em;
 }
 
 .tabla-paros th {
-  background: #f2f2f2;
+  background: #FDA5D5;
   font-weight: bold;
 }
 
@@ -2379,19 +2379,19 @@ input, select, textarea, button {
 /* Celdas */
 .tabla-produccion th,
 .tabla-produccion td {
-  border: 1px solid #ccc;
+  border: 1px solid #FDA5D5;
   padding: 0.6em;
 }
 
 /* Encabezados */
 .tabla-produccion th {
-  background: #f5f5f5;
+  background: #FDA5D5;
   font-weight: bold;
 }
 
 /* Fila de totales */
 .tabla-produccion .fila-totales {
-  background: #eee;
+  background: #FDA5D5;
   font-weight: bold;
 }
 
@@ -2419,7 +2419,7 @@ input, select, textarea, button {
 /* Columna de piezas sin retrabajo
    (se controla con JS, aquí solo estilos visuales) */
 .tabla-produccion .col-sin-retrabajo {
-  background: #fafafa;
+  background: #fccee8;
   transition: all 0.2s ease;
 }
 
@@ -2444,7 +2444,7 @@ input, select, textarea, button {
 /* Más ancho para la primera columna (Hora) */
 .tabla-produccion th:first-child,
 .tabla-produccion td:first-child {
-  width: 70px;   /* puedes ajustar entre 100px y 150px según te guste */
+  width: 80px;   /* puedes ajustar entre 100px y 150px según te guste */
   min-width: 50px;
 }
 
@@ -2464,7 +2464,7 @@ input, select, textarea, button {
 
 /* columnas */
 #work .calendar .col { flex: 1 1 0; min-width: 0; display:flex; flex-direction:column; }
-#work .calendar .leftCol { background: #F48989; color: #ffffff; }
+#work .calendar .leftCol { background: #FDA5D5; color: #ffffff; }
 #work .calendar .rightCol { background: #ffffff; color: #333333; }
 
 /* contenido */
@@ -2517,7 +2517,7 @@ input, select, textarea, button {
 
 /* hover / seleccionado */
 #work .calendar .days li a:hover { background:#EEEDE9; }
-#work .calendar .days li a.selected { background:#F5A1A3; color:#fff; }
+#work .calendar .days li a.selected { background:#FDA5D5; color:#fff; }
 
 /* left column date */
 #work .calendar .leftCol .date { font-weight:300; font-size:26px; margin-bottom: 1rem; }
@@ -2568,34 +2568,35 @@ body.is-preload #wrapper,
 
 /* Colores para turnos */
 #work .calendar .days li .label.ab {
-  color: #F48989; /* mismo rojo suave que la columna izquierda */
+  color: rgb(225, 120, 178); /* mismo rojo suave que la columna izquierda */
 }
 
 #work .calendar .days li .label.cd {
-  color: #747978; /* gris neutro que combina */
+  color: rgb(78, 165, 148); /* gris neutro que combina */
 }
 
 /* Fondo detrás del número según turno */
 #work .calendar .days li.ab a {
-  background-color: rgba(248, 119, 119, 0.244); /* rojo suave translúcido */
+  background-color: rgb(255, 181, 222); /* rojo suave translúcido */
   border-radius: 50%;
 }
 
 #work .calendar .days li.cd a {
-  background-color: rgba(81, 86, 85, 0.15); /* gris translúcido */
+  background-color: rgb(177, 255, 239); /* gris translúcido */
   border-radius: 50%;
 }
 
 /* Día seleccionado conserva el color de su turno, pero más intenso */
 #work .calendar .days li.ab a.selected,
 #work .calendar .days li.ab a.today {
-  background-color: #F48989;  /* rojo fuerte */
+  background-color: #F6339A;  /* rojo fuerte */
   color: #fff;
 }
 
 #work .calendar .days li.cd a.selected,
 #work .calendar .days li.cd a.today {
-  background-color: #747978;  /* gris fuerte */
+  background-color: rgb(33, 200, 167);  /* gris fuerte */
   color: #fff;
 }
+
 
