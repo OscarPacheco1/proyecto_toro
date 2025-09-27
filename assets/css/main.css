@@ -2599,4 +2599,20 @@ body.is-preload #wrapper,
   color: #fff;
 }
 
+/* ===== Ajustes para ocupar todo el ancho ===== */
+#wrapper,
+#main,
+.panel {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body {
+  margin: 0 !important;
+}
+
+
 
